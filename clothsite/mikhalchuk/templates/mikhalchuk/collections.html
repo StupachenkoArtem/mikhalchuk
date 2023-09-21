@@ -1,0 +1,12 @@
+{% extends 'mikhalchuk/base.html' %}
+{% block mainphoto %}
+{% endblock mainphoto %}
+{% block content %}
+<title>{{ title }}</title>
+<ul>
+    {% for collections in collections %}
+        <li>{{ collections.name }}</li>
+    {% endfor %}
+</ul>
+<p>здесь будут коллекции
+{% endblock %}
