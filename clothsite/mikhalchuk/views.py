@@ -89,3 +89,7 @@ def trousers_and_skirts(request):
         'title': "TROUSERS_AND_SKIRTS"
     }
     return render(request, 'mikhalchuk/trousers_and_skirts.html', context=context)
+
+
+def favicon_ico(request):
+    return HttpResponse("favicon.ico")
