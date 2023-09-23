@@ -20,12 +20,6 @@ class Dress(models.Model):
 class Collections(models.Model):
     name = models.CharField(verbose_name='название коллекции', max_length=255)
     photo1 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
-    photo2 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
-    photo3 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
-    photo4 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
-    photo5 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
-    photo6 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
-    photo7 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
 
     def __str__(self):
         return self.name

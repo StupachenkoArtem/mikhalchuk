@@ -93,3 +93,13 @@ def trousers_and_skirts(request):
 
 def favicon_ico(request):
     return HttpResponse("favicon.ico")
+
+
+def my_view(request):
+    if request.method == 'POST':
+        form = Collections(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = Collections()
+    return render(request, 'base.html', {'form': form})
