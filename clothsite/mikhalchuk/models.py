@@ -21,8 +21,8 @@ class Collections(models.Model):
     name = models.CharField(verbose_name='название коллекции', max_length=255)
     photo1 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
 
-    def __str__(self):
-        return self.name
+    def get_absolute_url(self):
+        return reverse('my_list_view')
 
 
 class Jackets(models.Model):
