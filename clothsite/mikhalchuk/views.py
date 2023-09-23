@@ -22,7 +22,7 @@ def gallery(request):
     return render(request, 'mikhalchuk/gallery.html', {'title': 'GALLERY'})
 
 
-def collection_detail(request, id):
+def collection_detail(request):
     context = {
         'menu': menu,
         'title': "",
