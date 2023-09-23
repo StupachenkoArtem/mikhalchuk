@@ -23,11 +23,12 @@ def gallery(request):
 
 
 def collections(request):
+    collections = Collections.objects.all()
     context = {
         'menu': menu,
-        'title': "COLLECTIONS"
+        'title': "COLLECTIONS",
+        'collections': collections
     }
-    collections = Collections.objects.all()
     return render(request, 'mikhalchuk/collections.html', context=context)
 
 
