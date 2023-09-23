@@ -15,5 +15,6 @@ urlpatterns = [
     path('dress/', dress, name='dress'),
     path('shirts_and_blouses/', shirts_and_blouses, name='shirts_and_blouses'),
     path('trousers_and_skirts/', trousers_and_skirts, name='trousers_and_skirts'),
-    path('favicon.ico', favicon_ico, name='favicon.ico')
+    path('favicon.ico', favicon_ico, name='favicon.ico'),
+    path('collections/<int:id>/', collection_detail, name='collection_detail'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

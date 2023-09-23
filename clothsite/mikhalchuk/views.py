@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
 
 menu = [{'title': 'Галерея', 'url_name': 'gallery'},
@@ -20,6 +20,14 @@ def index(request):
 
 def gallery(request):
     return render(request, 'mikhalchuk/gallery.html', {'title': 'GALLERY'})
+
+
+def collection_detail(request, id):
+    context = {
+        'menu': menu,
+        'title': "",
+    }
+    return render(request, 'collection_detail.html', context=context)
 
 
 def collections(request):
