@@ -141,3 +141,10 @@ html, body {
     font-size: 14px;
     color: #555;
 }
+
+.image-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Центрировать содержимое по горизонтали */
+    text-align: center; /* Центрировать текст по горизонтали */
+}
