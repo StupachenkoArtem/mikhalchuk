@@ -7,8 +7,10 @@
     {% for collection in collections %}
         <div class="image-item">
             <a href="{{ collection.url }}">
-                {{ collection.name }}
-                <img src="{{ collection.photo1.url }}" alt="{{ collection.name }}">
+                <div class="font_down">
+                 {{ collection.name }}
+                </div>
+                <img src="{{ collection.photo1.url }}" alt="{{ collection.name }}" style="width: 40%; height: auto;">
             </a>
         </div>
         {% if forloop.counter|divisibleby:3 %}
