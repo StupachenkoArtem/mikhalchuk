@@ -120,3 +120,17 @@ html, body {
 }
 
 
+.image-grid {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.image-item {
+    flex: 0 0 calc(33.33% - 10px);
+    margin: 5px;
+    box-sizing: border-box;
+}
+
+.clear {
+    clear: both;
+}

@@ -3,19 +3,17 @@
 {% endblock mainphoto %}
 {% block content %}
 <title>{{ title }}</title>
-<ul>
-    {% for collections in collections %}
-        <li>
-            <a href="{{ collections.url }}">
-                {{ collections.name }}
+<div class="image-grid">
+    {% for collection in collections %}
+        <div class="image-item">
+            <a href="{{ collection.url }}">
+                {{ collection.name }}
+                <img src="{{ collection.photo1.url }}" alt="{{ collection.name }}">
             </a>
-        </li>
-        <li>
-            <a href="{{ collections.url }}">
-                <img src="{{ collections.photo1.url }}" style="width: 20%; height: 20%;"/>
-            </a>
-        </li>
+        </div>
+        {% if forloop.counter|divisibleby:3 %}
+        <div class="clear"></div>
+        {% endif %}
     {% endfor %}
-</ul>
-<p>здесь будут коллекции
+</div>
 {% endblock %}
