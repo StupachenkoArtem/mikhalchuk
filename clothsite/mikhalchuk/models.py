@@ -25,6 +25,13 @@ class Collections(models.Model):
         return self.name
 
 
+class CollectionsImages(models.Model):
+    photos = models.ManyToManyField('Photo')
+
+
+class Photo(models.Model):
+    image = models.ImageField(upload_to='photos/')
+
 
 class Jackets(models.Model):
     name = models.CharField(verbose_name='название пиджака', max_length=255)
