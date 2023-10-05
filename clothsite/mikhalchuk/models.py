@@ -20,6 +20,7 @@ class Dress(models.Model):
 class Collections(models.Model):
     name = models.CharField(verbose_name='название коллекции', max_length=255)
     photo1 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
+    slug = models.SlugField(verbose_name='URL', max_length=255, unique=True, db_index=True)
 
     def __str__(self):
         return self.name
@@ -48,7 +49,7 @@ class Jackets(models.Model):
         return self.name
 
 
-class Shirts_and_blouses(models.Model):
+class ShirtsAndBlouses(models.Model):
     name = models.CharField(verbose_name='название рубашки или блузы', max_length=255)
     compound = models.CharField(verbose_name='состав', max_length=255)
     color = models.CharField(verbose_name='цвет', max_length=255)
@@ -63,7 +64,7 @@ class Shirts_and_blouses(models.Model):
         return self.name
 
 
-class Trousers_and_skirts(models.Model):
+class TrousersAndSkirts(models.Model):
     name = models.CharField(verbose_name='название брюк или юбки', max_length=255)
     compound = models.CharField(verbose_name='состав', max_length=255)
     color = models.CharField(verbose_name='цвет', max_length=255)
@@ -78,7 +79,7 @@ class Trousers_and_skirts(models.Model):
         return self.name
 
 
-class New_collection(models.Model):
+class NewCollection(models.Model):
     name = models.CharField(verbose_name='название коллекции', max_length=255)
     compound = models.CharField(verbose_name='состав', max_length=255)
     color = models.CharField(verbose_name='цвет', max_length=255)

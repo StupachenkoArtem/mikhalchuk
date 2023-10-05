@@ -1,12 +1,13 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render, redirect, get_object_or_404
+from django.views.generic import DetailView
 from .models import *
+from .utils import DataMixin
 
 menu = [{'title': 'Галерея', 'url_name': 'gallery'},
         {'title': 'Коллекции', 'url_name': 'collections'},
         {'title': "MIKHAL'CHUK", 'url_name': "MIKHAL'CHUK"},
         {'title': 'Контакты', 'url_name': 'contact'}]
-menu2 = ["возврат и обмен товара", "доставка", "конфиденциальность", "публичная оферта"]
 
 
 def index(request):
@@ -38,6 +39,17 @@ def collections(request):
         'collections': collections
     }
     return render(request, 'mikhalchuk/collections.html', context=context)
+
+
+class ShowCollection(DataMixin, DetailView):
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        c_def = self.get_user_context(title=kwargs['object'].last_name)
+        return {**context, **c_def}
+    model = Collections
+    # template_name = 'mikhalchuk/.html'
+    slug_url_kwarg = 'coll_slug'
+    context_object_name = 'coll'
 
 
 def mikhalchuk(request):
