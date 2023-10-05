@@ -5,6 +5,6 @@ admin.site.register(Dress)
 
 admin.site.register(Collections)
 
-admin.site.register(CollectionsImages)
+# admin.site.register(CollectionsImages)
 
 admin.site.register(Photo)

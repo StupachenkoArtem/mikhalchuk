@@ -19,15 +19,12 @@ class Dress(models.Model):
 
 class Collections(models.Model):
     name = models.CharField(verbose_name='название коллекции', max_length=255)
-    photo1 = models.ImageField(verbose_name='фотография', upload_to='collection_images/')
+    collection_photo = models.ImageField(verbose_name='фотография')
+    photos = models.ManyToManyField('Photo')
     slug = models.SlugField(verbose_name='URL', max_length=255, unique=True, db_index=True)
 
     def __str__(self):
         return self.name
-
-
-class CollectionsImages(models.Model):
-    photos = models.ManyToManyField('Photo')
 
 
 class Photo(models.Model):
