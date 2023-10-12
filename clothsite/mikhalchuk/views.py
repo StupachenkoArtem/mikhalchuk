@@ -23,14 +23,6 @@ def gallery(request):
     return render(request, 'mikhalchuk/gallery.html', {'title': 'GALLERY'})
 
 
-def collection_detail(request):
-    context = {
-        'menu': menu,
-        'title': "",
-    }
-    return render(request, 'collection_detail.html', context=context)
-
-
 def collections(request):
     collections = Collections.objects.all()
     context = {
@@ -41,15 +33,13 @@ def collections(request):
     return render(request, 'mikhalchuk/collections.html', context=context)
 
 
-class ShowCollection(DataMixin, DetailView):
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        c_def = self.get_user_context(title=kwargs['object'].name)
-        return {**context, **c_def}
+class CollectionImageView(DetailView):
     model = Collections
-    template_name = 'mikhalchuk/collection.html'
-    slug_url_kwarg = 'coll_slug'
-    context_object_name = 'coll'
+    template_name = 'mikhalchuk/collection_image.html'
+    context_object_name = 'collection'
+
+    def get_object(self, queryset=None):
+        return get_object_or_404(Collections, slug=self.kwargs['coll_slug'])
 
 
 def mikhalchuk(request):

@@ -16,5 +16,6 @@ urlpatterns = [
     path('shirts_and_blouses/', shirts_and_blouses, name='shirts_and_blouses'),
     path('trousers_and_skirts/', trousers_and_skirts, name='trousers_and_skirts'),
     path('favicon.ico', favicon_ico, name='favicon.ico'),
-    path('collections/<int:id>/', collection_detail, name='collection_detail'),
+    # path('collections/<int:id>/', collection_detail, name='collection_detail'),
+    path('collection/<slug:coll_slug>/', CollectionImageView.as_view(), name='collection_image'),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
