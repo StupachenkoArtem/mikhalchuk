@@ -1,5 +1,7 @@
 from django.db import models
 from django.urls import reverse
+from django.db import models
+from django.contrib.auth.models import AbstractUser
 
 
 class Dress(models.Model):
@@ -20,7 +22,7 @@ class Dress(models.Model):
 class Collections(models.Model):
     name = models.CharField(verbose_name='название коллекции', max_length=255)
     collection_photo = models.ImageField(verbose_name='фотография')
-    photos = models.ManyToManyField('Photo')
+    photo1 = models.ManyToManyField('Photo')
     slug = models.SlugField(verbose_name='URL', max_length=255, unique=True, db_index=True)
 
     def __str__(self):
@@ -28,7 +30,7 @@ class Collections(models.Model):
 
 
 class Photo(models.Model):
-    image = models.ImageField(upload_to='photos/')
+    image = models.ImageField(upload_to='photo1/')
 
 
 class Jackets(models.Model):

@@ -60,7 +60,7 @@ class Migration(migrations.Migration):
             name='Photo',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='photos/')),
+                ('image', models.ImageField(upload_to='photo1/')),
             ],
         ),
         migrations.CreateModel(
@@ -100,7 +100,7 @@ class Migration(migrations.Migration):
                 ('name', models.CharField(max_length=255, verbose_name='название коллекции')),
                 ('collection_photo', models.ImageField(upload_to='', verbose_name='фотография')),
                 ('slug', models.SlugField(max_length=255, unique=True, verbose_name='URL')),
-                ('photos', models.ManyToManyField(to='mikhalchuk.photo')),
+                ('photo1', models.ManyToManyField(to='mikhalchuk.photo')),
             ],
         ),
     ]
